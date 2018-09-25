@@ -15,24 +15,15 @@ import Typography from '@material-ui/core/Typography';
 import {Grid, Col, Row} from 'react-flexbox-grid';
 
 //Redux
-import {createStore} from 'redux';
 import {setCity} from './actions';
+import {store} from "./store";
 
 //Assets
 import './App.css';
 
+//constants
+import {cities} from "./constants/cities";
 
-const cities = [
-    "San Jose,Cr",
-    "Paris,Fr",
-    "Bratsk, Rus",
-    "Alaska, Us",
-    "Madrid, Es",
-    "Heredia, Cr"
-];
-
-const store = createStore(()=>{}, window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__());
 
 class App extends Component {
 
