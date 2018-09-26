@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import Typography from '@material-ui/core/Typography';
 import './styles.css';
 import transformForecast from './../services/transformForcast';
 import ForecastItem from "./ForecastItem";
@@ -58,9 +57,9 @@ class ForeCastExtended extends Component{
         const {forecastData} = this.state;
         return(
             <div className='forecastContent'>
-                <h2  className='forecastTitle'>
-                    <Typography variant={"display2"} color={"primary"}>{city}</Typography>
-                </h2>
+                <h1  className='forecastTitle'>
+                    {city}
+                </h1>
                 {forecastData ?
                     this.renderForecastItemsDays(forecastData) :
                     this.renderProgress()

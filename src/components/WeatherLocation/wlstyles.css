@@ -16,8 +16,8 @@
     text-align: left;
     overflow: hidden;
 }
-.location h1{
-    font-family: 'Fugaz One', cursive;
+.location h2{
+    font-family: 'Julius Sans One', sans-serif;
     letter-spacing: 3px;
     margin: 0;
     white-space: nowrap;

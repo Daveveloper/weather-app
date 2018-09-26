@@ -1,6 +1,7 @@
 .forecastTitle{
     text-align: center;
     padding-top: 15px;
+    font-family: 'Julius Sans One', sans-serif;
 }
 .locationList{
     height: 85vh;

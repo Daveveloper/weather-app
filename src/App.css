@@ -23,7 +23,7 @@
 }
 
 .details{
-  background: beige;
+  background: #BDBDBD;
   height: 85vh;
   width: calc(100% - 20px);
   overflow: auto;
