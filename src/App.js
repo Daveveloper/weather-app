@@ -1,8 +1,7 @@
 //dependencies
 import React, { Component } from 'react'
-import LocationList from "./components/LocationList";
-import ForecastExtended from './components/ForeCastExtended';
-import PropTypes from 'prop-types';
+import LocationListContainer from "./containers/LocationListContainer";
+import ForecastExtendedContainer from './containers/ForecastExtendedContainer';
 //@material components
 import {MuiThemeProvider} from '@material-ui/core/styles';
 import theme from './constants/theme';
@@ -12,9 +11,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 //React-Flexbox-Grid
 import {Grid, Col, Row} from 'react-flexbox-grid';
-//Redux
-import {setCity} from './actions';
-import { connect } from 'react-redux';
 //Assets
 import './App.css';
 import {cities} from "./constants/cities";
@@ -22,20 +18,7 @@ import {cities} from "./constants/cities";
 
 class App extends Component {
 
-    constructor(){
-        super();
-        this.state = {
-            city : null,
-        }
-    }
-
-  handleSelectedLocation = city => {
-        this.setState({city});
-        this.props.dispatchSetCity(city);
-  };
-
   render() {
-    const {city} = this.state;
     return (
       <MuiThemeProvider theme={theme}>
       <Grid>
@@ -50,17 +33,12 @@ class App extends Component {
           </Row>
           <Row>
               <Col xs={12} md={6}>
-                  <LocationList
-                      cities={cities}
-                      onSelectedLocation={this.handleSelectedLocation}
-                  />
+                  <LocationListContainer cities={cities}/>
               </Col>
               <Col xs={12} md={6}>
                   <Paper elevation={5}>
                       <div className="details">
-                          { city &&
-                              <ForecastExtended city={city}/>
-                          }
+                          <ForecastExtendedContainer/>
                       </div>
                   </Paper>
               </Col>
@@ -71,13 +49,5 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-    dispatchSetCity: PropTypes.func.isRequired,
-};
-
-const initMapDispatchToProps = dispatch => ({
-    dispatchSetCity: value=>dispatch(setCity(value))
-});
-
-export default connect(null, initMapDispatchToProps)(App);
+export default App;
 
