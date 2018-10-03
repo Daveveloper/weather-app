@@ -30,5 +30,5 @@ export const setSelectedCity = payload=> {
                 dispatch(setForecastData({city: payload, forecastData}));
             }
         );
-    };
+    }
 };
